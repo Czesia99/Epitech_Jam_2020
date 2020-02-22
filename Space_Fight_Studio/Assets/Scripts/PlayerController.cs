@@ -70,7 +70,7 @@ public class PlayerController: MonoBehaviour
 			// Vector3 targetVelocityY = new Vector2(m_Rigidbody2D.velocity.x, move2);
 			Vector3 targetVelocityX = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 			//Enable Vertical movement 
-			if (move2 < 0f)
+			if (move2 < 0f) //If the Down key is press
 				targetVelocityX = new Vector2(move * 10f, move2 * 0.25f);
 			// And then smoothing it out and applying it to the character
 			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, (targetVelocityX), ref m_Velocity, m_MovementSmoothing);
