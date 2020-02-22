@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0f;
     float verticalMove = 0f;
     bool jump = false;
+    bool dash = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,12 +27,18 @@ public class PlayerMovement : MonoBehaviour
         {
             jump = true;
         }
+
+        if (Input.GetButtonDown("Dash"))
+        {
+            dash = true;
+        }
     }
 
     void FixedUpdate() 
     {
         // controller.Move(horizontalMove * Time.fixedDeltaTime, jump, false);
-        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, false, verticalMove);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash, verticalMove);
         jump = false;
+        dash = false;
     }
 }
