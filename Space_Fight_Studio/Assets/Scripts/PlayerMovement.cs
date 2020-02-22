@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerController controller;
     public float runSpeed = 40f;
     float horizontalMove = 0f;
+    float verticalMove = 0f;
     bool jump = false;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        verticalMove = Input.GetAxisRaw("Vertical") * runSpeed;
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -27,7 +29,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate() 
     {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, false);
+        // controller.Move(horizontalMove * Time.fixedDeltaTime, jump, false);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, false, verticalMove);
         jump = false;
     }
 }
