@@ -5,7 +5,6 @@ public class PlayerController: MonoBehaviour
 {
 	[SerializeField] private float m_JumpForce = 400f;
 	[SerializeField] private float m_DashForce = 500f;
-	[Range(0, 1)] [SerializeField] private float m_dashSpeed = 1f;
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
 	[SerializeField] private bool m_AirControl = false;
 	[SerializeField] private LayerMask m_WhatIsGround;
@@ -15,7 +14,7 @@ public class PlayerController: MonoBehaviour
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;
 	private int nb_jumps = 2;
-	private int nb_dash = 1;
+	private int nb_dash = 2;
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;
 	private Vector3 m_Velocity = Vector3.zero;
@@ -64,6 +63,7 @@ public class PlayerController: MonoBehaviour
 		if (dash && nb_dash > 0)
 		{
 			Debug.Log("dash !");
+			nb_dash -= 1;
 			if (m_FacingRight)
 			{
 				Debug.Log("positiv move");
@@ -105,10 +105,10 @@ public class PlayerController: MonoBehaviour
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 		}
 
-		if (m_Grounded)
+		if (m_Grounded) {
 			nb_jumps = 2;
-			nb_dash = 1;
-
+			nb_dash = 2;
+		}
 	}
 
 
