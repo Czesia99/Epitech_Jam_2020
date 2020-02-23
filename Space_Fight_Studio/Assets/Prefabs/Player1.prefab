@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8272864716038870817}
   - component: {fileID: 8272864716038870814}
   - component: {fileID: 8272864716038870815}
-  - component: {fileID: 8272864716038870819}
   - component: {fileID: 8272864716038870816}
   - component: {fileID: 8272864716038870818}
   - component: {fileID: 8272864716038870821}
+  - component: {fileID: 8249441792847107476}
   m_Layer: 8
   m_Name: Player1
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 8272864716038870812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 4, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0}
   m_Children:
   - {fileID: 8272864716417090675}
   - {fileID: 8272864716996531810}
@@ -90,7 +90,7 @@ MonoBehaviour:
     _roundnessPerCorner: 0
     _roundnessTopLeft: 0
     _roundnessTopRight: 0
-    _shapeType: 2
+    _shapeType: 0
     _startAngle: 0
     _triangleOffset: 0.5
     _usePolygonMap: 0
@@ -144,32 +144,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &8272864716038870819
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8272864716038870812}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 06390fe4365d123399990c3a939b2351, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!50 &8272864716038870816
 Rigidbody2D:
   serializedVersion: 4
@@ -182,7 +156,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.5
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -229,6 +203,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 8272864716038870818}
   runSpeed: 40
+--- !u!58 &8249441792847107476
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8272864716038870812}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 06390fe4365d123399990c3a939b2351, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &8272864716417090672
 GameObject:
   m_ObjectHideFlags: 0
