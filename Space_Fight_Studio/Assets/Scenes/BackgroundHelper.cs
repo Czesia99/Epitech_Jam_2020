@@ -21,7 +21,7 @@ public class BackgroundHelper : MonoBehaviour
 
         if (pos > 1.0F)
 
-            pos -= 1.0F;
+            pos -= 1.7F;
 
         image.uvRect = new Rect(pos, 0, 1, 1);
     }
