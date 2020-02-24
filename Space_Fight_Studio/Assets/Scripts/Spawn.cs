@@ -8,7 +8,10 @@ public class mySpawn : MonoBehaviour
 
     public void onSpawn(Vector3 position)
     {
-        Instantiate(ballPrefab).transform.position = position;
+        GameObject JunkInstance;
+        JunkInstance =  Instantiate(ballPrefab);
+        JunkInstance.transform.position = position;
+        JunkInstance.GetComponent<Rigidbody2D>().AddForce(new Vector2(10f * 100, 10f * 100));
     }
 
     // Update is called once per frame
