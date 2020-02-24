@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class myTrigger : MonoBehaviour
+public class spawnerTrigger : MonoBehaviour
 {
     public GameObject myScript;
     void Awake()
@@ -14,8 +14,8 @@ public class myTrigger : MonoBehaviour
             GameObject JunkInstance;
     
             JunkInstance = Instantiate(myScript);
-            if (!JunkInstance.GetComponent<LevelManager>().isActive())
-                JunkInstance.GetComponent<LevelManager>().setActive(true);
+            if (!JunkInstance.GetComponent<mySpawner>().isActive())
+                JunkInstance.GetComponent<mySpawner>().setActive(true);
 
         }
     }

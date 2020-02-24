@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class mySpawner : MonoBehaviour
 {
     public GameObject[] myGameobject;
-    public bool onInstantiateStart = false;
+    public bool Trigger = false;
+    public bool Repeat = false;
     public float Duration;
     private float _duration = 0;
-    public bool Trigger = false;
     private bool Active = false;
     public float spawnTime;
     public float spawnDelay;
@@ -30,8 +30,11 @@ public class LevelManager : MonoBehaviour
     // }
     void Awake()
     {
-        if (onInstantiateStart)
+        _duration = Duration;
+        if (Trigger) {
             setActive(true);
+            Trigger = false;
+        }
     }
     public bool isActive()
     {
@@ -68,16 +71,17 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Trigger) {
-            setActive(true);
-            Trigger = false;
-        }
         if (isActive()) {
             Duration -= Time.deltaTime;
             if (Duration <= 0) {
-                setActive(false);
+                if (!Repeat)
+                    setActive(false);
                 Duration = _duration;
             }
+        }
+        if (Trigger) {
+            setActive(true);
+            Trigger = false;
         }
     }
 }
